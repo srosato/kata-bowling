@@ -14,15 +14,20 @@ class Bowling
      */
     private $frames;
 
+    private function nextFrame()
+    {
+        $newFrame = new Frame();
+        $this->getCurrentFrame()->setNextFrame($newFrame);
+
+        $this->getFrames()->push($newFrame);
+    }
+
     public function strike()
     {
         $currentFrame = $this->getCurrentFrame();
         $currentFrame->addStrike(new Strike());
 
-        $newFrame = new Frame();
-        $currentFrame->setNextFrame($newFrame);
-
-        $this->getFrames()->push($newFrame);
+        $this->nextFrame();
     }
 
     /**
@@ -42,7 +47,12 @@ class Bowling
      */
     public function pinsDown($numberOfPins)
     {
-        $this->getCurrentFrame()->addThrow(new StandardThrow($numberOfPins));
+        $currentFrame = $this->getCurrentFrame();
+        $currentFrame->addThrow(new StandardThrow($numberOfPins));
+
+        if( $currentFrame->isCompleted() ) {
+            $this->nextFrame();
+        }
     }
 
     public function getScore()

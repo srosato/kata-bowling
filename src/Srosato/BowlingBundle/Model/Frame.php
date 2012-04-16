@@ -32,6 +32,14 @@ class Frame
     /**
      * @return bool
      */
+    public function isCompleted()
+    {
+        return 2 === $this->getStack()->count();
+    }
+
+    /**
+     * @return bool
+     */
     public function hasNextFrame()
     {
         return null !== $this->getNextFrame();
