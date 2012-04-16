@@ -9,5 +9,5 @@ interface BallThrow
      *
      * @return int
      */
-    public function getPinsCount();
+    public function getScore();
 }

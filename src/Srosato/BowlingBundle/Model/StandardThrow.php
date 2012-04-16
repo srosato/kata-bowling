@@ -17,7 +17,7 @@ class StandardThrow implements BallThrow
     /**
      * @return int
      */
-    public function getPinsCount()
+    public function getScore()
     {
         return $this->pinsCount;
     }

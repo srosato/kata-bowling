@@ -74,7 +74,7 @@ class Frame
 
         /* @var $throw BallThrow */
         foreach( $this->getStack() as $throw ) {
-            $score += $throw->getPinsCount();
+            $score += $throw->getScore();
         }
 
         return $score;

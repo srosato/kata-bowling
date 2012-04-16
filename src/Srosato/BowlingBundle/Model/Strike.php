@@ -30,7 +30,7 @@ class Strike implements BallThrow
     /**
      * @return int
      */
-    public function getPinsCount()
+    public function getScore()
     {
         $score = 10;
         $frame = $this->getFrame();
