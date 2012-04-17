@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="760f5861-454f-4c12-9d80-d1cb09ae15b1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/ratius.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kata-bowling.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/get-composer.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kata-bowling.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -132,7 +120,16 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="75" selection-end="75" vertical-scroll-proportion="0.15845071">
+            <state line="7" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.18485916">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get-composer.sh" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/get-composer.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="45" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -152,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Roll.php" />
         <option value="$PROJECT_DIR$/app/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/StandardRoll.php" />
         <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Strike.php" />
@@ -167,6 +163,7 @@
         <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Frame.php" />
         <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Game.php" />
         <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/GameGameScoreTest.php" />
+        <option value="$PROJECT_DIR$/get-composer.sh" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -419,7 +416,7 @@
   </component>
   <component name="RunManager" selected="PHPUnit.test-kata-bowling">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner class="FrameTest" directory="$PROJECT_DIR$/app/cache" file="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/FrameTest.php" method="testPinsDownOnSecondThrowWillCorrectlyReturnScore" scope="Class" />
+      <TestRunner class="FrameTest" directory="$PROJECT_DIR$" file="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/FrameTest.php" method="testPinsDownOnSecondThrowWillCorrectlyReturnScore" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -547,7 +544,11 @@
       <created>1334631161098</created>
       <updated>1334631161098</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added .idea folder.&#10;">
+      <created>1334633597028</created>
+      <updated>1334633597028</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -619,7 +620,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test code refactor.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added .idea folder.&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -637,6 +638,7 @@
     <MESSAGE value="Added code coverage for phpunit.xml.dist.&#10;" />
     <MESSAGE value="More code refactoring and ajusted the code base to support consecutive strikes bonus calculation.&#10;" />
     <MESSAGE value="Test code refactor.&#10;" />
+    <MESSAGE value="Added .idea folder.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -646,11 +648,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/.composer/installed.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1249" column="0" selection-start="38410" selection-end="38410" vertical-scroll-proportion="0.14634146" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="44" selection-start="775" selection-end="775" vertical-scroll-proportion="0.31358886" />
@@ -743,9 +740,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/get-composer.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="45" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="75" selection-end="75" vertical-scroll-proportion="0.15845071">
+        <state line="7" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.18485916">
           <folding />
         </state>
       </provider>
