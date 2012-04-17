@@ -4,7 +4,7 @@ namespace Srosato\BowlingBundle\Model;
 
 use Srosato\BowlingBundle\Model\Frame;
 
-class Strike implements BallThrow
+class Strike implements Roll
 {
     /**
      * @var Frame
@@ -28,23 +28,36 @@ class Strike implements BallThrow
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getScore()
     {
-        $score = 10;
+        $score = $this->getValue();
+
         $frame = $this->getFrame();
 
         if( $frame->hasNextFrame() ) {
             $nextFrame = $frame->getNextFrame();
 
-            $score += $nextFrame->getScore();
+            $rolls = $nextFrame->getRolls();
 
-            if( $nextFrame->hasNextFrame() ) {
-                $score += $nextFrame->getScore();
+            if( $rolls->offsetExists(0) ) {
+                $score += $rolls->get(0)->getValue();
+            }
+
+            if( $rolls->offsetExists(1) ) {
+                $score += $rolls->get(1)->getValue();
             }
         }
 
         return $score;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getValue()
+    {
+        return 10;
     }
 }

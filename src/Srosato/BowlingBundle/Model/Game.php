@@ -4,13 +4,14 @@ namespace Srosato\BowlingBundle\Model;
 
 use Srosato\BowlingBundle\Model\Frame;
 use Srosato\BowlingBundle\Model\Strike;
+use Srosato\BowlingBundle\Model\Gutter;
 
-use Majisti\UtilsBundle\Collections\Stack;
+use Doctrine\Common\Collections\ArrayCollection;
 
-class Bowling
+class Game
 {
     /**
-     * @var Stack
+     * @var ArrayCollection
      */
     private $frames;
 
@@ -19,27 +20,17 @@ class Bowling
         $newFrame = new Frame();
         $this->getCurrentFrame()->setNextFrame($newFrame);
 
-        $this->getFrames()->push($newFrame);
+        $this->getFrames()->add($newFrame);
     }
 
     public function strike()
     {
-        $currentFrame = $this->getCurrentFrame();
-        $currentFrame->addStrike(new Strike());
-
-        $this->nextFrame();
+        $this->roll(new Strike());
     }
 
-    /**
-     * @return Stack
-     */
-    private function getFrames()
+    public function gutter()
     {
-        if( null === $this->frames ) {
-            $this->frames = new Stack();
-        }
-
-        return $this->frames;
+        $this->roll(new Gutter());
     }
 
     /**
@@ -47,12 +38,32 @@ class Bowling
      */
     public function pinsDown($numberOfPins)
     {
+        $this->roll(new StandardRoll($numberOfPins));
+    }
+
+    /**
+     * @param Roll $roll
+     */
+    private function roll(Roll $roll)
+    {
         $currentFrame = $this->getCurrentFrame();
-        $currentFrame->addThrow(new StandardThrow($numberOfPins));
+        $currentFrame->addRoll($roll);
 
         if( $currentFrame->isCompleted() ) {
             $this->nextFrame();
         }
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getFrames()
+    {
+        if( null === $this->frames ) {
+            $this->frames = new ArrayCollection();
+        }
+
+        return $this->frames;
     }
 
     public function getScore()
@@ -75,9 +86,9 @@ class Bowling
         $frames = $this->getFrames();
 
         if( $frames->isEmpty() ) {
-            $frames->push(new Frame());
+            $frames->add(new Frame());
         }
 
-        return $frames->peek();
+        return $frames->last();
     }
 }

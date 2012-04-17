@@ -2,7 +2,7 @@
 
 namespace Srosato\BowlingBundle\Model;
 
-class StandardThrow implements BallThrow
+class StandardRoll implements Roll
 {
     private $pinsCount;
 
@@ -15,9 +15,17 @@ class StandardThrow implements BallThrow
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getScore()
+    {
+        return $this->getValue();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getValue()
     {
         return $this->pinsCount;
     }

@@ -2,8 +2,8 @@
 
 namespace Srosato\BowlingBundle\Model;
 
-use Majisti\UtilsBundle\Collections\Stack;
-use Srosato\BowlingBundle\Model\BallThrow;
+use Doctrine\Common\Collections\ArrayCollection;
+use Srosato\BowlingBundle\Model\Roll;
 use Srosato\BowlingBundle\Model\Strike;
 
 class Frame
@@ -14,19 +14,17 @@ class Frame
     private $nextFrame;
 
     /**
-     * @var Stack
+     * @var ArrayCollection
      */
-    protected $stack;
+    protected $rolls;
 
-    public function addStrike(Strike $strike)
+    public function addRoll(Roll $roll)
     {
-        $strike->setFrame($this);
-        $this->addThrow($strike);
-    }
+        if( $roll instanceof Strike ) {
+            $roll->setFrame($this);
+        }
 
-    public function addThrow(BallThrow $throw)
-    {
-        $this->getStack()->push($throw);
+        $this->getRolls()->add($roll);
     }
 
     /**
@@ -34,7 +32,13 @@ class Frame
      */
     public function isCompleted()
     {
-        return 2 === $this->getStack()->count();
+        $rolls = $this->getRolls();
+
+        if( !$rolls->isEmpty() ) {
+            return 2 === $rolls->count() || $rolls->get(0) instanceof Strike;
+        }
+
+        return false;
     }
 
     /**
@@ -62,15 +66,15 @@ class Frame
     }
 
     /**
-     * @return Stack
+     * @return ArrayCollection
      */
-    public function getStack()
+    public function getRolls()
     {
-        if( null === $this->stack ) {
-            $this->stack = new Stack();
+        if( null === $this->rolls ) {
+            $this->rolls = new ArrayCollection();
         }
 
-        return $this->stack;
+        return $this->rolls;
     }
 
     /**
@@ -80,9 +84,9 @@ class Frame
     {
         $score = 0;
 
-        /* @var $throw BallThrow */
-        foreach( $this->getStack() as $throw ) {
-            $score += $throw->getScore();
+        /* @var $roll Roll */
+        foreach( $this->getRolls() as $roll ) {
+            $score += $roll->getScore();
         }
 
         return $score;

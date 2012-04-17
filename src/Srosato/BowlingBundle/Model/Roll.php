@@ -2,7 +2,7 @@
 
 namespace Srosato\BowlingBundle\Model;
 
-interface BallThrow
+interface Roll
 {
     /**
      * @abstract
@@ -10,4 +10,11 @@ interface BallThrow
      * @return int
      */
     public function getScore();
+
+    /**
+     * @abstract
+     *
+     * @return int
+     */
+    public function getValue();
 }
