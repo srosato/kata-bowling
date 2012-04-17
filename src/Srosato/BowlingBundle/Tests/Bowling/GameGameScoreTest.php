@@ -15,7 +15,7 @@ class GameScoreTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($game->getCurrentFrame()->isCompleted()); //FIXME: law of demeter
     }
 
-    public function testPinsDownOnFirstThrowWillCorrectlyCalculateScore()
+    public function testPinsDownOnFirstRollWillCorrectlyCalculateScore()
     {
         $game = new Game();
 
@@ -24,7 +24,7 @@ class GameScoreTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(5, $game->getScore());
     }
 
-    public function testPinsDownOnSecondThrowWillCorrectlyReturnScore()
+    public function testPinsDownOnSecondRollWillCorrectlyCalculateScore()
     {
         $game = new Game();
 
