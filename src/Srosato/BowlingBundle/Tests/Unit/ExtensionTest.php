@@ -1,10 +1,10 @@
 <?php
 
-namespace Srosato\BowlingBundle\Tests;
+namespace Srosato\BowlingBundle\Tests\Unit;
 
 use Srosato\BowlingBundle\Model\Game;
 
-class BundleTest extends \PHPUnit_Framework_TestCase
+class ExtensionTest extends \PHPUnit_Framework_TestCase
 {
     public function testCreation()
     {

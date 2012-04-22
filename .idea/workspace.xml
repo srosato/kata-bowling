@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="760f5861-454f-4c12-9d80-d1cb09ae15b1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/get-composer.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Acceptance/StartingNewGameTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/BundleTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/Util/RandomRollGeneratorTest.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/BundleTest.php" afterPath="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/ExtensionTest.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/GameScoreTest.php" afterPath="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Integration/GameScoreCalculationTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_test.yml" afterPath="$PROJECT_DIR$/app/config/config_test.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
     </list>
     <ignored path="kata-bowling.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -16,9 +25,14 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/kata-bowling$GameScoreTest.xml" NAME="GameScoreTest Coverage Results" MODIFIED="1334807475083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kata-bowling$kata_bowling.xml" NAME="kata-bowling Coverage Results" MODIFIED="1334807192548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kata-bowling$test_kata_bowling.xml" NAME="test-kata-bowling Coverage Results" MODIFIED="1335068653815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="../../www/kata-bowling/build/coverage/clover.xml" NAME="clover.xml" MODIFIED="1334625886000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kata-bowling$GameScoreCalculationTest.xml" NAME="GameScoreCalculationTest Coverage Results" MODIFIED="1335075928871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
     <option name="myActivateViewOnRun" value="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -72,64 +86,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Game.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Game.php">
+      <file leaf-file-name="GameScoreCalculationTest.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Integration/GameScoreCalculationTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="4" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Strike.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Strike.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="42" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StandardRoll.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/StandardRoll.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Roll.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Roll.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="30" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Frame.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Frame.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="4" selection-start="757" selection-end="757" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.18485916">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get-composer.sh" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/get-composer.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="45" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
+            <state line="11" column="0" selection-start="275" selection-end="275" vertical-scroll-proportion="0.29049295">
               <folding />
             </state>
           </provider>
@@ -149,22 +109,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/phpunit.xml.dist" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/StandardRoll.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Strike.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Gutter.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/GameTest.php" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/BundleTest.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/FrameTest.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/BowlingTest.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/BowlingScoreTest.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/ScoreTest.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Frame.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Game.php" />
-        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/GameGameScoreTest.php" />
-        <option value="$PROJECT_DIR$/get-composer.sh" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/vendor/behat/mink/src/Behat/Mink/Element/Element.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Integration/PlayingGame.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Acceptance/PlayingGame.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Acceptance/StartingGame.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Acceptance/StartingNewGame.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/GameScoreTest.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Integration/GameScoreTest.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/ExtensionTest.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/BundleTest.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/Util/RandomRollTest.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/Util/RandomRollGeneratorTest.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Integration/GameScoreCalculationTest.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/app/config/config_test.yml" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Acceptance/StartingNewGameTest.php" />
       </list>
     </option>
   </component>
@@ -247,6 +207,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,7 +290,101 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Bowling" />
+              <option name="myItemId" value="Unit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Srosato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Srosato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Integration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Srosato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Acceptance" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -367,16 +424,95 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Srosato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyInjection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kata-bowling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane />
+      <pane id="Scope">
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="kata-bowling">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -384,11 +520,12 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="coverage" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -400,7 +537,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit" />
       <recent name="$PROJECT_DIR$/src/Srosato/BowlingBundle/Model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Integration" />
     </key>
   </component>
   <component name="Regex">
@@ -414,47 +555,20 @@
     <option name="referencePos" value="0" />
     <option name="showLabels" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.test-kata-bowling">
+  <component name="RunManager" selected="PHPUnit.GameScoreCalculationTest">
+    <configuration default="false" name="GameScoreCalculationTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="GameScoreCalculationTest" directory="$PROJECT_DIR$" file="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Integration/GameScoreCalculationTest.php" method="testPinsDownOnSecondThrowWillCorrectlyReturnScore" scope="Class" />
+      <RunnerSettings RunnerId="PhpRunner" />
+      <RunnerSettings RunnerId="PhpUnitCoverageRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpUnitCoverageRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner class="FrameTest" directory="$PROJECT_DIR$" file="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/FrameTest.php" method="testPinsDownOnSecondThrowWillCorrectlyReturnScore" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-        <option name="PhingTarget" enabled="false" />
-        <option name="RakeTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
-      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
-      <module name="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
         <option name="PhingTarget" enabled="false" />
         <option name="RakeTask" enabled="false" />
@@ -469,59 +583,47 @@
         <option name="RakeTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
-      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
-      <module name="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-        <option name="PhingTarget" enabled="false" />
-        <option name="RakeTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="false" name="test-kata-bowling" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner configuration_file="$PROJECT_DIR$/app/phpunit.xml.dist" directory="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests" options="--coverage-html ../build/coverage/html --coverage-clover ../build/coverage/clover.xml" use_alternative_configuration_file="true" />
+      <TestRunner configuration_file="$PROJECT_DIR$/app/phpunit.xml.dist" directory="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests" use_alternative_configuration_file="true" />
       <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="PhpRunner" />
+      <RunnerSettings RunnerId="PhpUnitCoverageRunner" />
       <ConfigurationWrapper RunnerId="Cover" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpUnitCoverageRunner" />
       <method />
     </configuration>
     <configuration default="false" name="test-kata-bowling-with-coverage" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/app/phpunit.xml.dist" directory="$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests" options="--coverage-html ../build/coverage/html --coverage-clover ../build/coverage/clover.xml" use_alternative_configuration_file="true" />
-      <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="PhpRunner" />
-      <ConfigurationWrapper RunnerId="Cover" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="PHPUnit.test-kata-bowling" />
       <item index="1" class="java.lang.String" itemvalue="PHPUnit.test-kata-bowling-with-coverage" />
+      <item index="2" class="java.lang.String" itemvalue="PHPUnit.GameScoreCalculationTest" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <configuration useDefault="true">$USER_HOME$/.subversion_IDEA</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="760f5861-454f-4c12-9d80-d1cb09ae15b1" name="Default" comment="" />
@@ -548,7 +650,11 @@
       <created>1334633597028</created>
       <updated>1334633597028</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added workspace.xml to gitignore and added get-composer.sh&#10;">
+      <created>1334633838840</created>
+      <updated>1334633838840</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -557,9 +663,7 @@
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32881355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -568,18 +672,20 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.67118645" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881355" sideWeight="0.6682692" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881355" sideWeight="0.6682692" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Amazon EC2" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21741453" sideWeight="0.67118645" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2013889" sideWeight="0.67118645" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32881355" sideWeight="0.32799146" order="2" side_tool="false" content_ui="tabs" x="3357" y="24" width="1920" height="1055" />
       <window_info id="Regex" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -617,10 +723,10 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added .idea folder.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added workspace.xml to gitignore and added get-composer.sh&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -639,6 +745,7 @@
     <MESSAGE value="More code refactoring and ajusted the code base to support consecutive strikes bonus calculation.&#10;" />
     <MESSAGE value="Test code refactor.&#10;" />
     <MESSAGE value="Added .idea folder.&#10;" />
+    <MESSAGE value="Added workspace.xml to gitignore and added get-composer.sh&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -648,108 +755,114 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/vendor/behat/mink/src/Behat/Mink/Element/TraversableElement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="20" selection-start="2563" selection-end="2563" vertical-scroll-proportion="0.3329453">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/majisti/utils-bundle/Majisti/UtilsBundle/Test/MinkTestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="31" selection-start="315" selection-end="315" vertical-scroll-proportion="0.22700815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/behat/mink/src/Behat/Mink/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="20" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.3329453">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/behat/mink/src/Behat/Mink/Element/ElementInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="10" selection-start="639" selection-end="639" vertical-scroll-proportion="0.2491269">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/behat/mink/src/Behat/Mink/Element/Element.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="45" selection-start="423" selection-end="423" vertical-scroll-proportion="0.33178115">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/BundleTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="57" selection-start="244" selection-end="244" vertical-scroll-proportion="0.17462166">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/ExtensionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="14" selection-start="163" selection-end="163" vertical-scroll-proportion="0.13969733">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Unit/Util/RandomRollGeneratorTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="35" selection-start="203" selection-end="203" vertical-scroll-proportion="0.13969733">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/behat/mink-bundle/Behat/MinkBundle/Test/MinkTestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="74" selection-start="969" selection-end="969" vertical-scroll-proportion="0.59371364">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="4" selection-start="1398" selection-end="1398" vertical-scroll-proportion="0.79045403">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_test.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="233" selection-end="233" vertical-scroll-proportion="0.24447031">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="44" selection-start="775" selection-end="775" vertical-scroll-proportion="0.31358886" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/kata-bowling.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/majisti/utils/Majisti/UtilsBundle/Collections/Stack.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="42" selection-start="976" selection-end="976" vertical-scroll-proportion="0.7394366" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/common/lib/Doctrine/Common/Collections/ArrayCollection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="323" column="35" selection-start="8404" selection-end="8404" vertical-scroll-proportion="0.36786962">
+        <state line="32" column="8" selection-start="1444" selection-end="1444" vertical-scroll-proportion="0.5587893">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Gutter.php">
+    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Acceptance/StartingNewGameTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6" selection-start="232" selection-end="232" vertical-scroll-proportion="0.27939466">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="419" selection-end="419" vertical-scroll-proportion="0.36670548">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/BundleTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="489" selection-end="489" vertical-scroll-proportion="0.2619325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Roll.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="30" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/StandardRoll.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Strike.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="42" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
+        <state line="15" column="102" selection-start="415" selection-end="415" vertical-scroll-proportion="0.2619325">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Game.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="4" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/phpunit.xml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="39" selection-start="333" selection-end="333" vertical-scroll-proportion="0.13969733">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Bowling/GameScoreTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="560" selection-end="560" vertical-scroll-proportion="0.3492433">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Model/Frame.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="4" selection-start="757" selection-end="757" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/get-composer.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="45" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
+        <state line="48" column="42" selection-start="919" selection-end="919" vertical-scroll-proportion="0.83818394">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.18485916">
+        <state line="7" column="18" selection-start="107" selection-end="107" vertical-scroll-proportion="0.18485916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Srosato/BowlingBundle/Tests/Integration/GameScoreCalculationTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="275" selection-end="275" vertical-scroll-proportion="0.29049295">
           <folding />
         </state>
       </provider>

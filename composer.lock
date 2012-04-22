@@ -1,23 +1,43 @@
 {
-    "hash": "2293f88635c2c33eddf1124aaaf4625e",
+    "hash": "0a56968f99a6b663fc4ad4df70fc3fd3",
     "packages": [
         {
+            "package": "alexandresalome/php-selenium",
+            "version": "master-dev",
+            "source-reference": "master"
+        },
+        {
+            "package": "behat/mink",
+            "version": "dev-master",
+            "source-reference": "v1.3.3"
+        },
+        {
+            "package": "behat/mink-bundle",
+            "version": "dev-master",
+            "source-reference": "4f68c897b5a0b0414d3fad9b282a2a8885136cad"
+        },
+        {
+            "package": "behat/sahi-client",
+            "version": "dev-master",
+            "source-reference": "v1.0.1"
+        },
+        {
             "package": "doctrine/common",
-            "version": "2.2.2"
+            "version": "2.2.0"
         },
         {
             "package": "doctrine/data-fixtures",
             "version": "dev-master",
-            "source-reference": "aea0b95a554188892f10d8f09ce3ae8150f28f8b"
+            "source-reference": "8fb90c55c0bfbf4e090adb8c0281f9a3c81735e7"
         },
         {
             "package": "doctrine/dbal",
-            "version": "2.2.2"
+            "version": "2.2.1"
         },
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "dd3d35dd28e864fb908a70f8b206d1209aa2c333"
+            "source-reference": "3daf1806759db6c2bef430f2307442be0e8ead1f"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -27,6 +47,16 @@
         {
             "package": "doctrine/orm",
             "version": "2.2.0"
+        },
+        {
+            "package": "fabpot/goutte",
+            "version": "master-dev",
+            "source-reference": "master"
+        },
+        {
+            "package": "facebook/php-webdriver",
+            "version": "master-dev",
+            "source-reference": "master"
         },
         {
             "package": "jms/aop-bundle",
@@ -51,7 +81,12 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "eb3b5eb732e5f172d5aa12dea0af36b7989c18b3"
+            "source-reference": "3acfb6afa50dd1dca387a8dfb641cd3b98a8584d"
+        },
+        {
+            "package": "kriswallsmith/buzz",
+            "version": "dev-master",
+            "source-reference": "83147864bfac8d47a56ac26b901b8f39ef078489"
         },
         {
             "package": "liip/functional-test-bundle",
@@ -59,9 +94,9 @@
             "source-reference": "857d2a52420033e2c81faaef4a56b4011ed6b3a2"
         },
         {
-            "package": "majisti/utils",
+            "package": "majisti/utils-bundle",
             "version": "dev-master",
-            "source-reference": "1c565d007a9bf89b0a60d183950d2b1aa7d4b527"
+            "source-reference": "d1a3dfb606f1f0dc2c82a1667bcc31de76673057"
         },
         {
             "package": "monolog/monolog",
@@ -70,7 +105,7 @@
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "38be63ebb45cc1fbeaff3f2bdf6d0ed216305a24"
+            "source-reference": "a2f09ae4b38533d9f16083b740f6a77fb5efd313"
         },
         {
             "package": "sensio/framework-extra-bundle",
@@ -80,7 +115,7 @@
         {
             "package": "sensio/generator-bundle",
             "version": "dev-master",
-            "source-reference": "06d07e0514d310be8d5630bfd93637136991c30c"
+            "source-reference": "5f2ded5e5679f66c604f128d5650715bb81d7d7c"
         },
         {
             "package": "swiftmailer/swiftmailer",
@@ -94,7 +129,7 @@
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "289442e385e7c0fe4aa2e8884d11e774a8f9ad99"
+            "source-reference": "aea0145e5669ed855db430e0f53536fab16b6dd7"
         },
         {
             "package": "symfony/swiftmailer-bridge",
@@ -104,24 +139,48 @@
         {
             "package": "symfony/swiftmailer-bundle",
             "version": "dev-master",
-            "source-reference": "75f8f95c201922a966274547131b33291d15d51b"
+            "source-reference": "1c6b57fe57210e9dcb5b4586d6572f47d17a25d7"
         },
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "e7470ffebb07d1f09fe80c98670a00236d581563",
+            "source-reference": "03ad8c932db16ecf8f595004331436a5e02ae656",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
             "version": "dev-master",
-            "source-reference": "4c831657215e51568fcb31bb9142e827f9a69bd5"
+            "source-reference": "446d870272cd87a720e95242eade38a2acf56eaa"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "4e28408ce1fced95251e5f8c8299aa43e9f40f4d",
+            "source-reference": "e7313a7825dec69822481e560c43d27c55d9c4a1",
             "alias": "1.7.9999999.9999999-dev"
+        },
+        {
+            "package": "zendframework/zend-http",
+            "version": "2.0.0beta3"
+        },
+        {
+            "package": "zendframework/zend-loader",
+            "version": "2.0.0beta3"
+        },
+        {
+            "package": "zendframework/zend-registry",
+            "version": "2.0.0beta3"
+        },
+        {
+            "package": "zendframework/zend-stdlib",
+            "version": "2.0.0beta3"
+        },
+        {
+            "package": "zendframework/zend-uri",
+            "version": "2.0.0beta3"
+        },
+        {
+            "package": "zendframework/zend-validator",
+            "version": "2.0.0beta3"
         }
     ],
     "packages-dev": null,

@@ -1,10 +1,10 @@
 <?php
 
-namespace Srosato\BowlingBundle\Tests;
+namespace Srosato\BowlingBundle\Tests\Integration;
 
 use Srosato\BowlingBundle\Model\Game;
 
-class GameScoreTest extends \PHPUnit_Framework_TestCase
+class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetScoreBeforeStartingGameCalculateAScoreOfZero()
     {

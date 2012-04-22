@@ -29,6 +29,10 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
         }
 
+        if ('test' === $this->getEnvironment()) {
+            $bundles[] = new Behat\MinkBundle\MinkBundle();
+        }
+
         return $bundles;
     }
 
