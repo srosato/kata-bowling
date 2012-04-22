@@ -2,22 +2,14 @@
 
 namespace Srosato\BowlingBundle\Model;
 
-class Gutter extends AbstractRoll
+class Spare extends AbstractRoll
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getScore()
-    {
-        return $this->getValue();
-    }
-
     /**
      * {@inheritdoc}
      */
     public function getValue()
     {
-        return 0;
+        return 10 - $this->getFrame()->getLastRoll()->getValue();
     }
 
     /**
@@ -25,6 +17,6 @@ class Gutter extends AbstractRoll
      */
     public function getBonusRollCount()
     {
-        return 0;
+        return 1;
     }
 }

@@ -20,11 +20,8 @@ class Frame
 
     public function addRoll(Roll $roll)
     {
-        if( $roll instanceof Strike ) {
-            $roll->setFrame($this);
-        }
-
         $this->getRolls()->add($roll);
+        $roll->setFrame($this);
     }
 
     /**
@@ -34,11 +31,11 @@ class Frame
     {
         $rolls = $this->getRolls();
 
-        if( !$rolls->isEmpty() ) {
+//        if( !$rolls->isEmpty() ) {
             return 2 === $rolls->count() || $rolls->get(0) instanceof Strike;
-        }
+//        }
 
-        return false;
+//        return false;
     }
 
     /**
@@ -78,17 +75,27 @@ class Frame
     }
 
     /**
+     * @return Roll
+     */
+    public function getLastRoll()
+    {
+        return $this->getRolls()->current();
+    }
+
+    /**
      * @return int
      */
-    public function getScore()
+    public function getValue()
     {
-        $score = 0;
+        $value = 0;
 
         /* @var $roll Roll */
         foreach( $this->getRolls() as $roll ) {
-            $score += $roll->getScore();
+            $value += $roll->getValue();
         }
 
-        return $score;
+        return $value > 10
+            ? 10
+            : $value;
     }
 }

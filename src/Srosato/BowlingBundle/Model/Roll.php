@@ -9,12 +9,28 @@ interface Roll
      *
      * @return int
      */
-    public function getScore();
+    public function getValue();
 
     /**
      * @abstract
      *
      * @return int
      */
-    public function getValue();
+    public function getBonusRollCount();
+
+    /**
+     * @abstract
+     *
+     * @return Frame
+     */
+    public function getFrame();
+
+    /**
+     * @abstract
+     *
+     * @param Frame $frame
+     *
+     * @return mixed
+     */
+    public function setFrame(Frame $frame);
 }

@@ -4,6 +4,7 @@ namespace Srosato\BowlingBundle\Model;
 
 use Srosato\BowlingBundle\Model\Frame;
 use Srosato\BowlingBundle\Model\Strike;
+use Srosato\BowlingBundle\Model\Spare;
 use Srosato\BowlingBundle\Model\Gutter;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,6 +15,11 @@ class Game
      * @var ArrayCollection
      */
     private $frames;
+
+    /**
+     * @var ArrayCollection
+     */
+    private $rolls;
 
     private function nextFrame()
     {
@@ -26,6 +32,11 @@ class Game
     public function strike()
     {
         $this->roll(new Strike());
+    }
+
+    public function spare()
+    {
+        $this->roll(new Spare($this->getRolls()->last()));
     }
 
     public function gutter()
@@ -49,9 +60,19 @@ class Game
         $currentFrame = $this->getCurrentFrame();
         $currentFrame->addRoll($roll);
 
-        if( $currentFrame->isCompleted() ) {
+        $this->getRolls()->add($roll);
+
+        if( !$this->isCompleted() && $currentFrame->isCompleted() ) {
             $this->nextFrame();
         }
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isCompleted()
+    {
+        return 10 === $this->getFrames()->count();
     }
 
     /**
@@ -66,16 +87,25 @@ class Game
         return $this->frames;
     }
 
-    public function getScore()
+    /**
+     * @return ArrayCollection
+     */
+    public function getRolls()
     {
-        $score = 0;
-
-        /* @var $frame Frame */
-        foreach( $this->getFrames() as $frame ) {
-            $score += $frame->getScore();
+        if( null === $this->rolls ) {
+            $this->rolls = new ArrayCollection();
         }
 
-        return $score;
+        return $this->rolls;
+    }
+
+    /**
+     * @return int
+     */
+    public function getScore()
+    {
+        $score = new Score();
+        return $score->calculate($this);
     }
 
     /**
