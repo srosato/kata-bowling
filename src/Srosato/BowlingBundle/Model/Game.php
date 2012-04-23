@@ -16,7 +16,7 @@ class Game
      */
     private $frames;
 
-    private function nextFrame()
+    private function addNextFrame()
     {
         $this->getFrames()->add(new Frame());
     }
@@ -57,8 +57,8 @@ class Game
 
         $currentFrame->addRoll($roll);
 
-        if( !$this->isCompleted() && $currentFrame->isCompleted() ) {
-            $this->nextFrame();
+        if( !$this->isCurrentFrameLastFrame() && $currentFrame->isCompleted() ) {
+            $this->addNextFrame();
         }
     }
 

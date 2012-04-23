@@ -58,6 +58,8 @@ class GameFactory
             $game->spare();
         }
 
+        $game->gutter();
+
         return $game;
     }
 }

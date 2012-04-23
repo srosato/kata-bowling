@@ -9,15 +9,13 @@ use Srosato\BowlingBundle\Model\Strike;
 class Frame
 {
     /**
-     * @var Frame
-     */
-    private $nextFrame;
-
-    /**
      * @var ArrayCollection
      */
     protected $rolls;
 
+    /**
+     * @param Roll $roll
+     */
     public function addRoll(Roll $roll)
     {
         $this->getRolls()->add($roll);
@@ -30,18 +28,20 @@ class Frame
     {
         $rolls = $this->getRolls();
 
+        //TODO: refactor this mess
         if( !$rolls->isEmpty() ) {
-            if( $rolls->count() > 2 ) {
+            if( 2 === $rolls->count() && $rolls->get(1) instanceof Strike ) {
+                return false;
+            } else if( 2 === $rolls->count() && $rolls->get(1) instanceof Spare ) {
+                return false;
+            } else if( 1 === $rolls->count() && $rolls->get(0) instanceof Strike && $rolls->get(0)->isBonusApplicable() ) {
                 return true;
-            } else if( $rolls->count() === 1 && $rolls->get(0) instanceof Strike ) {
+            } else if( 2 <= $rolls->count() ) {
                 return true;
-            } else if( $rolls->count() === 2 && $rolls->get(1) instanceof Spare ) {
-
             }
-            return 2 <= $rolls->count() || $rolls->get(0) instanceof Strike;
         }
 
-//        return false;
+        return false;
     }
 
     /**

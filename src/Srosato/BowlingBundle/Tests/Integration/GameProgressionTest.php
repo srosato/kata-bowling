@@ -20,17 +20,7 @@ class GameProgressionTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function fullGamesShouldHaveTenFrames()
-    {
-        $this->assertCount(10, $this->gameFactory->createGutterGame()->getFrames());
-        $this->assertCount(10, $this->gameFactory->createPerfectGame()->getFrames());
-        $this->assertCount(10, $this->gameFactory->createSpareGame()->getFrames());
-    }
-
-    /**
-     * @test
-     */
-    public function gameShouldBeCompletedWhenScoringASpareOnLastFrame()
+    public function gameShouldNotBeCompletedWhenScoringASpareOnLastFrame()
     {
         $game = $this->gameFactory->createGutterGameUpToLastFrame();
 
@@ -38,6 +28,10 @@ class GameProgressionTest extends \PHPUnit_Framework_TestCase
 
         $game->pinsDown(5);
         $game->spare();
+
+        $this->assertFalse($game->isCompleted());
+
+        $game->pinsDown(5);
 
         $this->assertTrue($game->isCompleted());
     }
@@ -47,8 +41,6 @@ class GameProgressionTest extends \PHPUnit_Framework_TestCase
      */
     public function gameShouldBeCompletedWhenScoringAStrikeOnTheLastRollOfTheLastFrame()
     {
-        $this->markTestSkipped();
-
         $game = $this->gameFactory->createGutterGameUpToLastFrame();
 
         $this->assertFalse($game->isCompleted());
@@ -60,6 +52,26 @@ class GameProgressionTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($game->isCompleted());
 
         $game->strike();
+        $this->assertTrue($game->isCompleted());
+    }
+
+    /**
+     * @test
+     */
+    public function fullGamesShouldHaveTenFramesAndBeCompleted()
+    {
+        $gameFactory = $this->gameFactory;
+
+        $game = $gameFactory->createGutterGame();
+        $this->assertCount(10, $game->getFrames());
+        $this->assertTrue($game->isCompleted());
+
+        $game = $gameFactory->createPerfectGame();
+        $this->assertCount(10, $game->getFrames());
+        $this->assertTrue($game->isCompleted());
+
+        $game = $gameFactory->createSpareGame();
+        $this->assertCount(10, $game->getFrames());
         $this->assertTrue($game->isCompleted());
     }
 }
