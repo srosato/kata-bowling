@@ -16,17 +16,9 @@ class Game
      */
     private $frames;
 
-    /**
-     * @var ArrayCollection
-     */
-    private $rolls;
-
     private function nextFrame()
     {
-        $newFrame = new Frame();
-        $this->getCurrentFrame()->setNextFrame($newFrame);
-
-        $this->getFrames()->add($newFrame);
+        $this->getFrames()->add(new Frame());
     }
 
     public function strike()
@@ -58,9 +50,12 @@ class Game
     private function roll(Roll $roll)
     {
         $currentFrame = $this->getCurrentFrame();
-        $currentFrame->addRoll($roll);
 
-        $this->getRolls()->add($roll);
+        if( $this->isCurrentFrameLastFrame() ) {
+            $roll->setIsBonusApplicable(false);
+        }
+
+        $currentFrame->addRoll($roll);
 
         if( !$this->isCompleted() && $currentFrame->isCompleted() ) {
             $this->nextFrame();
@@ -70,9 +65,17 @@ class Game
     /**
      * @return boolean
      */
-    public function isCompleted()
+    public function isCurrentFrameLastFrame()
     {
         return 10 === $this->getFrames()->count();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isCompleted()
+    {
+        return $this->isCurrentFrameLastFrame() && $this->getCurrentFrame()->isCompleted();
     }
 
     /**
@@ -92,11 +95,16 @@ class Game
      */
     public function getRolls()
     {
-        if( null === $this->rolls ) {
-            $this->rolls = new ArrayCollection();
+        $rolls = new ArrayCollection();
+
+        /* @var $frame Frame */
+        foreach( $this->getFrames() as $frame ) {
+            foreach( $frame->getRolls() as $roll ) {
+                $rolls->add($roll);
+            }
         }
 
-        return $this->rolls;
+        return $rolls;
     }
 
     /**

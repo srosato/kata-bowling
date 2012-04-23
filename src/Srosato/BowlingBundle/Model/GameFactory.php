@@ -21,6 +21,20 @@ class GameFactory
     /**
      * @return \Srosato\BowlingBundle\Model\Game
      */
+    public function createGutterGameUpToLastFrame()
+    {
+        $game = new Game();
+
+        for( $i = 0; $i < 18; $i++ ) {
+            $game->gutter();
+        }
+
+        return $game;
+    }
+
+    /**
+     * @return \Srosato\BowlingBundle\Model\Game
+     */
     public function createPerfectGame()
     {
         $game = new Game();

@@ -21,7 +21,12 @@ class Score
 
             /* @var $roll Roll */
             $roll = $rollIterator->current();
-            $score += $roll->getValue() + $this->getBonusFromNextRolls($roll->getBonusRollCount(), $game->getRolls()->getIterator(), $rollIterator->key() + 1);
+            $score += $roll->getValue();
+
+            if( $roll->isBonusApplicable() ) {
+                $score += $this->getBonusFromNextRolls($roll->getBonusRollCount(),
+                    $game->getRolls()->getIterator(), $rollIterator->key() + 1);
+            }
 
             $rollIterator->next();
         }
@@ -48,9 +53,9 @@ class Score
 
         $rollCounter = 0;
         while( $rollIterator->valid() && $rollCounter < $numberOfNextRolls ) {
+            /* @var $roll Roll */
             $roll = $rollIterator->current();
 
-            /* @var $roll Roll */
             $bonus += $roll->getValue();
 
             $rollIterator->next();

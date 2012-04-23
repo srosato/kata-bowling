@@ -31,7 +31,7 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function pinsDownOnFirstRollWillCorrectlyCalculateScore()
+    public function pinsDownOnFirstRollShouldCorrectlyCalculateScore()
     {
         $game = new Game();
 
@@ -43,7 +43,7 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function pinsDownOnSecondRollWillAlsoCorrectlyCalculateScore()
+    public function pinsDownOnSecondRollShouldAlsoCorrectlyCalculateScore()
     {
         $game = new Game();
 
@@ -56,7 +56,7 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function strikeWillCalculateBonusOnNextTwoRolls()
+    public function rollingAStrikeShouldCalculateBonusOnNextTwoRolls()
     {
         $game = new Game();
 
@@ -77,7 +77,7 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function twoConsecutiveStrikesWillCorrectlyCalculateBonuses()
+    public function rollingTwoConsecutiveStrikesShouldAlsoCorrectlyCalculateBonuses()
     {
         $game = new Game();
 
@@ -96,7 +96,7 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function spareAfterARollWillGiveAScoreOfTen()
+    public function spareAfterARollShouldGiveAScoreOfTen()
     {
         $game = new Game();
 
@@ -109,7 +109,7 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function spareWillCalculateBonusOnNextRoll()
+    public function spareShouldCalculateBonusOnNextRoll()
     {
         $game = new Game();
 
@@ -123,7 +123,7 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function strikeAndSpareWillCorrectlyCalculateBonuses()
+    public function strikeAndSpareShouldCorrectlyCalculateBonuses()
     {
         $game = new Game();
 
@@ -140,7 +140,7 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function gutterGameWillCalculateAScoreOfZero()
+    public function gutterGameShouldCalculateAScoreOfZero()
     {
         $game = $this->gameFactory->createGutterGame();
         $this->assertEquals(0, $game->getScore());
@@ -149,17 +149,7 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function fullGamesShouldHaveTenFrames()
-    {
-        $this->assertCount(10, $this->gameFactory->createGutterGame()->getFrames());
-        $this->assertCount(10, $this->gameFactory->createPerfectGame()->getFrames());
-        $this->assertCount(10, $this->gameFactory->createSpareGame()->getFrames());
-    }
-
-    /**
-     * @test
-     */
-    public function perfectGameCalculatesAScoreOfThreeHundred()
+    public function perfectGameShouldCalculateAScoreOfThreeHundred()
     {
         $game = $this->gameFactory->createPerfectGame();
         $this->assertEquals(300, $game->getScore());
@@ -168,19 +158,48 @@ class GameScoreCalculationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function scoringAStrikeOnLastFrameShouldGiveTwoBonusRollsForThatSameFrame()
+    public function rollingASpareOnLastFrameShouldGiveOneMoreRollForThatSameFrameAndNotCountBonus()
+    {
+        $game = $this->gameFactory->createGutterGameUpToLastFrame();
+
+        $game->pinsDown(3);
+        $game->spare();
+        $game->strike();
+
+        $this->assertEquals(3 + 7 + 10, $game->getScore());
+    }
+
+    /**
+     * @test
+     */
+    public function rollingAStrikeOnLastFrameShouldGiveTwoMoreRollsForThatSameFrameAndNotCountAsBonuses()
+    {
+        $game = $this->gameFactory->createGutterGameUpToLastFrame();
+
+        $game->strike();
+        $game->pinsDown(3);
+        $game->spare();
+
+        $this->assertEquals(10 + 3 + 7, $game->getScore());
+    }
+
+    /**
+     * @test
+     */
+    public function rollingAStrikeOnBeforeLastFrameShouldAlsoReceiveBonusOnNextTwoRolls()
     {
         $game = new Game();
 
-        for( $i = 0; $i < 18; $i++ ) {
+        for( $i = 0; $i < 16; $i++ ) {
             $game->gutter();
         }
 
         $game->strike();
         $game->pinsDown(3);
         $game->spare();
+        $game->strike();
 
-        $this->assertCount(10, $game->getFrames());
-        $this->assertEquals( (10 + 3 + 7) + (3 + 7), $game->getScore());
+        $this->assertEquals( (10 + 3 + 7) + (3 + 7 + 10), $game->getScore());
     }
+
 }

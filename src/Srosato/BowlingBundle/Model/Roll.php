@@ -21,16 +21,14 @@ interface Roll
     /**
      * @abstract
      *
-     * @return Frame
+     * @param boolean $bonusApplicable
      */
-    public function getFrame();
+    public function setIsBonusApplicable($bonusApplicable);
 
     /**
      * @abstract
      *
-     * @param Frame $frame
-     *
-     * @return mixed
+     * @return boolean
      */
-    public function setFrame(Frame $frame);
+    public function isBonusApplicable();
 }

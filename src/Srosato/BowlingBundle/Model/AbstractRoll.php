@@ -5,23 +5,23 @@ namespace Srosato\BowlingBundle\Model;
 abstract class AbstractRoll implements Roll
 {
     /**
-     * @var Frame
+     * @var boolean
      */
-    private $frame;
+    private $bonusApplicable = true;
 
     /**
-     * @return Frame
+     * @param boolean $bonusApplicable
      */
-    public function getFrame()
+    public function setIsBonusApplicable($bonusApplicable)
     {
-        return $this->frame;
+        $this->bonusApplicable = (boolean)$bonusApplicable;
     }
 
     /**
-     * @param Frame $frame
+     * @return boolean
      */
-    public function setFrame(Frame $frame)
+    public function isBonusApplicable()
     {
-        $this->frame = $frame;
+        return $this->bonusApplicable;
     }
 }
