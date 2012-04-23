@@ -45,7 +45,7 @@ class GameProgressionTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function gameShouldOnlyBeCompletedWhenScoringAStrikeOnTheLastRollOfTheLastFrame()
+    public function gameShouldBeCompletedWhenScoringAStrikeOnTheLastRollOfTheLastFrame()
     {
         $this->markTestSkipped();
 
