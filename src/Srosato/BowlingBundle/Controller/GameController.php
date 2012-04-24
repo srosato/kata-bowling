@@ -15,11 +15,12 @@ class GameController extends Controller
 {
     /**
      * @Route("/new")
+     * @Template
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function newGameAction()
     {
-        return new Response("New bowling game");
+        return array();
     }
 }
