@@ -8,8 +8,6 @@ class StartingNewGameTest extends MinkTestCase
 {
     public function testStartNewGame()
     {
-        $this->markTestIncomplete();
-
         $session = $this->getSession();
         $session->visit('/game/new');
 

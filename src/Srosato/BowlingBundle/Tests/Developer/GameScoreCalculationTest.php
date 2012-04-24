@@ -1,6 +1,6 @@
 <?php
 
-namespace Srosato\BowlingBundle\Tests\Integration;
+namespace Srosato\BowlingBundle\Tests\Developer;
 
 use Srosato\BowlingBundle\Model\Game;
 use Srosato\BowlingBundle\Model\GameFactory;

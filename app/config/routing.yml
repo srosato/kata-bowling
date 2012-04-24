@@ -2,3 +2,9 @@
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
+
+SrosatoBowlingBundle:
+    resource: "@SrosatoBowlingBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
