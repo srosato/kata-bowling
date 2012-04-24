@@ -1,12 +1,15 @@
 <?php
 
-namespace Srosato\BowlingBundle\Tests\Functional;
+namespace Srosato\BowlingBundle\Tests\Acceptance;
 
 use Majisti\UtilsBundle\Test\MinkTestCase;
 
 class StartingNewGameTest extends MinkTestCase
 {
-    public function testStartNewGame()
+    /**
+     * @test
+     */
+    public function startNewGame()
     {
         $session = $this->getSession();
         $session->visit('/game/new');
