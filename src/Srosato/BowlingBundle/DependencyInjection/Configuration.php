@@ -1,6 +1,6 @@
 <?php
 
-namespace Srosato\FooBundle\DependencyInjection;
+namespace Srosato\BowlingBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
