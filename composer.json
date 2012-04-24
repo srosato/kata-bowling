@@ -46,6 +46,9 @@
         "sensio/generator-bundle": "dev-master",
         "jms/security-extra-bundle": "1.1.0",
         "jms/di-extra-bundle": "1.0.1",
+        "jms/serializer-bundle": "dev-master",
+        "friendsofsymfony/rest": "dev-master",
+        "friendsofsymfony/rest-bundle": "dev-master",
 
         "majisti/utils-bundle": "*",
         "liip/functional-test-bundle": "*"

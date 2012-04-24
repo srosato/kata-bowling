@@ -17,4 +17,12 @@
         </service>
     </services>
     -->
+
+    <parameters>
+        <parameter key="srosato_bowling.game_factory.class">Srosato\BowlingBundle\Model\GameFactory</parameter>
+    </parameters>
+
+    <services>
+        <service id="srosato_bowling.game_factory" class="%srosato_bowling.game_factory.class%" />
+    </services>
 </container>

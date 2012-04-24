@@ -7,19 +7,9 @@ use Majisti\UtilsBundle\Test\MinkTestCase;
 class StartingNewGameTest extends MinkTestCase
 {
     /**
-     * @test
+     * @param \Exception $e
+     * @throws \Exception
      */
-    public function startNewGame()
-    {
-        $session = $this->getSession();
-        $session->visit('/game/new');
-
-        $title = $this->findCss('.bowling .title');
-
-        $this->assertNotNull($title);
-        $this->assertEquals("New bowling game", $title->getText());
-    }
-
     protected function onNotSuccessfulTest(\Exception $e)
     {
         print $this->getSession()->getPage()->getContent();
@@ -32,7 +22,7 @@ class StartingNewGameTest extends MinkTestCase
      *
      * @return  \Behat\Mink\Element\NodeElement|null
      */
-    public function findCss($locator)
+    private function findCss($locator)
     {
         return $this->getSession()->getPage()->find('css', $locator);
     }
@@ -42,9 +32,45 @@ class StartingNewGameTest extends MinkTestCase
      *
      * @return bool
      */
-    public function hasCss($locator)
+    private function hasCss($locator)
     {
         return $this->getSession()->getPage()->has('css', $locator);
 
+    }
+
+    /**
+     * @test
+     */
+    public function visitTheGamePageShouldReturnNoGameAndSuggestToStartANewOne()
+    {
+        $session = $this->getSession();
+        $session->visit('/game');
+
+        $title = $this->findCss('.bowling .title');
+        $this->assertNotNull($title);
+        $this->assertEquals("You have not started a bowling game yet", $title->getText());
+
+        $newGameLink = $this->getSession()->getPage()->findLink('new-game');
+        $this->assertNotNull($newGameLink);
+        $this->assertEquals("Start game", $newGameLink->getHtml());
+    }
+
+    /**
+     * @test
+     */
+    public function startNewGame()
+    {
+        $this->markTestSkipped("Implementation on a new game will require a javascript supported driver");
+
+        $session = $this->getSession();
+        $session->visit('/game');
+
+        /* @var $newGameLink \Behat\Mink\Element\NodeElement */
+        $newGameLink = $this->getSession()->getPage()->findLink('new-game');
+        $newGameLink->click();
+
+        $title = $this->findCss('.bowling .title');
+        $this->assertNotNull($title);
+        $this->assertEquals("This is your bowling game", $title->getText());
     }
 }

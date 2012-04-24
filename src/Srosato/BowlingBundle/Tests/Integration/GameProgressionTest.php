@@ -20,6 +20,17 @@ class GameProgressionTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function newGameShouldHaveNoRolls()
+    {
+        $game = $this->gameFactory->createNewGame();
+
+        $this->assertFalse($game->isCompleted());
+        $this->assertCount(0, $game->getRolls());
+    }
+
+    /**
+     * @test
+     */
     public function gameShouldNotBeCompletedWhenScoringASpareOnLastFrame()
     {
         $game = $this->gameFactory->createGutterGameUpToLastFrame();

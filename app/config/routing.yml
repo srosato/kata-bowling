@@ -3,8 +3,12 @@
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
 
-SrosatoBowlingBundle:
-    resource: "@SrosatoBowlingBundle/Controller/"
-    type:     annotation
-    prefix:   /
+#SrosatoBowlingBundle:
+#    resource: "@SrosatoBowlingBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
+
+game:
+    type:     rest
+    resource: Srosato\BowlingBundle\Controller\GameController
 

@@ -7,9 +7,17 @@ class GameFactory
     /**
      * @return \Srosato\BowlingBundle\Model\Game
      */
+    public function createNewGame()
+    {
+        return new Game();
+    }
+
+    /**
+     * @return \Srosato\BowlingBundle\Model\Game
+     */
     public function createGutterGame()
     {
-        $game = new Game();
+        $game = $this->createNewGame();
 
         for( $i = 0; $i < 20; $i++ ) {
             $game->gutter();
@@ -23,7 +31,7 @@ class GameFactory
      */
     public function createGutterGameUpToLastFrame()
     {
-        $game = new Game();
+        $game = $this->createNewGame();
 
         for( $i = 0; $i < 18; $i++ ) {
             $game->gutter();
@@ -37,7 +45,7 @@ class GameFactory
      */
     public function createPerfectGame()
     {
-        $game = new Game();
+        $game = $this->createNewGame();
 
         for( $i = 0; $i < 12; $i++ ) {
             $game->strike();
@@ -51,7 +59,7 @@ class GameFactory
      */
     public function createSpareGame()
     {
-        $game = new Game();
+        $game = $this->createNewGame();
 
         for( $i = 0; $i < 10; $i++ ) {
             $game->pinsDown(9);

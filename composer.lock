@@ -1,5 +1,5 @@
 {
-    "hash": "0a56968f99a6b663fc4ad4df70fc3fd3",
+    "hash": "9b045e0bf5a2485518f43e0a54829f7d",
     "packages": [
         {
             "package": "alexandresalome/php-selenium",
@@ -37,7 +37,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "3daf1806759db6c2bef430f2307442be0e8ead1f"
+            "source-reference": "b6f9a57c60a0acaaf931a77e833ffeb24a3bdbf1"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -59,6 +59,16 @@
             "source-reference": "master"
         },
         {
+            "package": "friendsofsymfony/rest",
+            "version": "dev-master",
+            "source-reference": "a08b96b01e1ce26a7c43f993bf54aac756c0f6cb"
+        },
+        {
+            "package": "friendsofsymfony/rest-bundle",
+            "version": "dev-master",
+            "source-reference": "d9a876803df61858ce3e8d3f0c934727638ad874"
+        },
+        {
             "package": "jms/aop-bundle",
             "version": "1.0.0"
         },
@@ -77,6 +87,11 @@
         {
             "package": "jms/security-extra-bundle",
             "version": "1.1.0"
+        },
+        {
+            "package": "jms/serializer-bundle",
+            "version": "dev-master",
+            "source-reference": "6bf2f092449c7104e6d9327de029cc3f5d2e3385"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -100,7 +115,7 @@
         },
         {
             "package": "monolog/monolog",
-            "version": "1.0.2"
+            "version": "1.1.0"
         },
         {
             "package": "sensio/distribution-bundle",
@@ -129,7 +144,7 @@
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "aea0145e5669ed855db430e0f53536fab16b6dd7"
+            "source-reference": "c86ebe447cbef3b0454bd262c28729bae0862b0b"
         },
         {
             "package": "symfony/swiftmailer-bridge",
@@ -144,7 +159,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "03ad8c932db16ecf8f595004331436a5e02ae656",
+            "source-reference": "f209f4fc88149de0670cde7f91caa51ae030bf51",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -155,8 +170,8 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "e7313a7825dec69822481e560c43d27c55d9c4a1",
-            "alias": "1.7.9999999.9999999-dev"
+            "source-reference": "02f1c567b9376a1313a4f1ece941cf5fb73c2c3c",
+            "alias": "1.8.9999999.9999999-dev"
         },
         {
             "package": "zendframework/zend-http",
