@@ -15,7 +15,10 @@ class GameApiTest extends MinkTestCase
         /* @var $driver \Behat\MinkBundle\Driver\SymfonyDriver */
         $driver = $this->getSession('symfony')->getDriver();
 
-        return $driver->getClient();
+        $client =  $driver->getClient();
+        $this->insulateClient($client);
+
+        return $client;
     }
 
     /**
@@ -26,6 +29,10 @@ class GameApiTest extends MinkTestCase
         return $this->getClient()->getResponse();
     }
 
+    /**
+     * @param \Exception $e
+     * @throws \Exception
+     */
     protected function onNotSuccessfulTest(\Exception $e)
     {
         print $this->getSession()->getPage()->getContent();
@@ -38,17 +45,28 @@ class GameApiTest extends MinkTestCase
         $this->getClient()->request('POST', '/game.json');
     }
 
+    /**
+     * Client insulation is broken https://github.com/symfony/symfony/issues/1726
+     */
     private function requestGame()
     {
         $this->getClient()->request('GET', '/game.json');
     }
 
+    private function insulateClient($client)
+    {
+        $client->setServerParameter('HTTP_X_REQUESTED_WITH', null);
+    }
+
     /**
      * @test
      */
-    public function postShouldReturnThatAGameWasCreated()
+    public function ajaxPostShouldReturnThatAGameWasCreated()
     {
-        $this->requestNewGame();
+        $client = $this->getClient();
+        $client->setServerParameter('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
+        $client->request('POST', '/game.json');
+
         $response = $this->getResponse();
 
         $this->assertEquals(HttpCodes::HTTP_CREATED, $response->getStatusCode());
@@ -57,9 +75,36 @@ class GameApiTest extends MinkTestCase
     /**
      * @test
      */
+    public function postShouldReturnThatAGameWasCreatedAndSendRedirectionResponseToGameView()
+    {
+        $client = $this->getClient();
+        $client->followRedirects(false);
+
+        $client->request('POST', '/game');
+        $response = $this->getResponse();
+
+        $this->assertEquals(HttpCodes::HTTP_FOUND, $response->getStatusCode());
+        $this->assertEquals('/game', $response->headers->get('location'));
+    }
+
+    /**
+     * @test
+     */
+    public function jsonPostShouldNotBeAnAllowedMethod()
+    {
+        $client = $this->getClient();
+        $client->request('POST', '/game.json');
+
+        $response = $this->getResponse();
+        $this->assertEquals(HttpCodes::HTTP_METHOD_NOT_ALLOWED, $response->getStatusCode());
+    }
+
+    /**
+     * @test
+     */
     public function getGameShouldReturnNotFoundIfNoGameWasCreated()
     {
-        $this->requestGame();
+        $this->getClient()->request('GET', '/game.json');
         $response = $this->getResponse();
 
         $this->assertEquals(HttpCodes::HTTP_NOT_FOUND, $response->getStatusCode());

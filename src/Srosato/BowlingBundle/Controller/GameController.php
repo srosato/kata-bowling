@@ -11,24 +11,36 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use FOS\RestBundle\View\View;
-use FOS\RestBundle\Controller\Annotations\Get;
-use FOS\RestBundle\Controller\Annotations\Post;
+use FOS\RestBundle\View\RouteRedirectView;
 
 use FOS\Rest\Util\Codes as HttpCodes;
 
 class GameController extends Controller
 {
     /**
-     * @return \FOS\RestBundle\View\View
+     * @return \FOS\RestBundle\View\View|\Symfony\Component\HttpFoundation\Response
      */
     public function postGameAction()
     {
         $session = $this->getRequest()->getSession();
         $session->set('game', true);
 
-        $view = View::create()
-            ->setStatusCode(HttpCodes::HTTP_CREATED)
-        ;
+        $view = View::create();
+
+        if( $this->getRequest()->isXmlHttpRequest() ) {
+            $view->setStatusCode(HttpCodes::HTTP_CREATED);
+            return $view;
+        }
+
+        /* @var $handler \FOS\RestBundle\View\ViewHandler */
+        $handler = $this->get('fos_rest.view_handler');
+
+        $format = $this->getRequest()->getRequestFormat();
+        if( $handler->isFormatTemplating($format) ) {
+            return $handler->createRedirectResponse($view, $this->generateUrl('get_game'), $format);
+        }
+
+        $view->setStatusCode(HttpCodes::HTTP_METHOD_NOT_ALLOWED);
 
         return $view;
     }

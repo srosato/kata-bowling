@@ -8,7 +8,7 @@
 #    type:     annotation
 #    prefix:   /
 
-game:
+srosato_bowling_game:
     type:     rest
     resource: Srosato\BowlingBundle\Controller\GameController
 

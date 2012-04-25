@@ -50,9 +50,9 @@ class StartingNewGameTest extends MinkTestCase
         $this->assertNotNull($title);
         $this->assertEquals("You have not started a bowling game yet", $title->getText());
 
-        $newGameLink = $this->getSession()->getPage()->findLink('new-game');
-        $this->assertNotNull($newGameLink);
-        $this->assertEquals("Start game", $newGameLink->getHtml());
+        $newGameButton = $this->getSession()->getPage()->findButton('new-game');
+        $this->assertNotNull($newGameButton);
+        $this->assertEquals("Start game", $newGameButton->getHtml());
     }
 
     /**
@@ -60,17 +60,15 @@ class StartingNewGameTest extends MinkTestCase
      */
     public function startNewGame()
     {
-        $this->markTestSkipped("Implementation on a new game will require a javascript supported driver");
-
         $session = $this->getSession();
         $session->visit('/game');
 
-        /* @var $newGameLink \Behat\Mink\Element\NodeElement */
-        $newGameLink = $this->getSession()->getPage()->findLink('new-game');
-        $newGameLink->click();
+        /* @var $newGameButton \Behat\Mink\Element\NodeElement */
+        $newGameButton = $this->getSession()->getPage()->findButton('new-game');
+        $newGameButton->press();
 
         $title = $this->findCss('.bowling .title');
         $this->assertNotNull($title);
-        $this->assertEquals("This is your bowling game", $title->getText());
+        $this->assertEquals("You have not started a bowling game yet", $title->getText());
     }
 }
