@@ -7,6 +7,11 @@ use Srosato\BowlingBundle\Model\Frame;
 class Strike extends AbstractRoll
 {
     /**
+     * @var bool
+     */
+    protected $bonusApplicable = true;
+
+    /**
      * {@inheritdoc}
      */
     public function getValue()

@@ -2,73 +2,49 @@
 
 namespace Srosato\BowlingBundle\Tests\Acceptance;
 
-use Majisti\UtilsBundle\Test\MinkTestCase;
-
-class StartingNewGameTest extends MinkTestCase
+class StartingNewGameTest extends AbstractAcceptanceTest
 {
-    /**
-     * @param \Exception $e
-     * @throws \Exception
-     */
-    protected function onNotSuccessfulTest(\Exception $e)
-    {
-        print $this->getSession()->getPage()->getContent();
-
-        throw $e;
-    }
-
-    /**
-     * @param $locator
-     *
-     * @return  \Behat\Mink\Element\NodeElement|null
-     */
-    private function findCss($locator)
-    {
-        return $this->getSession()->getPage()->find('css', $locator);
-    }
-
-    /**
-     * @param $locator
-     *
-     * @return bool
-     */
-    private function hasCss($locator)
-    {
-        return $this->getSession()->getPage()->has('css', $locator);
-
-    }
-
     /**
      * @test
      */
     public function visitTheGamePageShouldReturnNoGameAndSuggestToStartANewOne()
     {
+        $helper = $this->getGameHelper();
+
         $session = $this->getSession();
         $session->visit('/game');
 
-        $title = $this->findCss('.bowling .title');
-        $this->assertNotNull($title);
-        $this->assertEquals("You have not started a bowling game yet", $title->getText());
+        $helper->assertTitle("Click 'start game' to start a new bowling game");
 
-        $newGameButton = $this->getSession()->getPage()->findButton('new-game');
-        $this->assertNotNull($newGameButton);
-        $this->assertEquals("Start game", $newGameButton->getHtml());
+        $newGameButton = $helper->getNewGameButton();
+        $this->assertNotNull($newGameButton, "New game button should be there");
+        $this->assertEquals("Start game", $newGameButton->getHtml(), "New game button text is wrong");
     }
 
     /**
      * @test
      */
-    public function startNewGame()
+    public function startingANewGameShouldDisplayANewGameWithTheScoreAndTheRollButton()
     {
-        $session = $this->getSession();
-        $session->visit('/game');
+        $helper = $this->getGameHelper();
 
-        /* @var $newGameButton \Behat\Mink\Element\NodeElement */
-        $newGameButton = $this->getSession()->getPage()->findButton('new-game');
-        $newGameButton->press();
+        $helper->startNewGame();
+        $helper->assertTitle("Game started");
 
-        $title = $this->findCss('.bowling .title');
-        $this->assertNotNull($title);
-        $this->assertEquals("You have not started a bowling game yet", $title->getText());
+        $wrapper = $this->findCss('.bowling .score-wrapper');
+        $scoreTitle = $wrapper->find('css', '.title');
+        $score = $wrapper->find('css', '.score');
+
+        $this->assertNotNull($wrapper, "Score wrapper should be there");
+
+        $this->assertNotNull($scoreTitle, "Score title should be there");
+        $this->assertEquals("Score:", $scoreTitle->getText(), "Score title is wrong");
+
+        $this->assertNotNull($score, "Score should be there");
+        $this->assertEquals(0, $score->getText(), "Score should be 0");
+
+        $rollButton = $helper->getRollButton();
+        $this->assertNotNull($rollButton, "Roll button should be there");
+        $this->assertEquals("Roll", $rollButton->getHtml(), "Roll button has wrong html");
     }
 }

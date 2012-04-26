@@ -7,7 +7,7 @@ abstract class AbstractRoll implements Roll
     /**
      * @var boolean
      */
-    private $bonusApplicable = true;
+    protected $bonusApplicable = false;
 
     /**
      * @param boolean $bonusApplicable

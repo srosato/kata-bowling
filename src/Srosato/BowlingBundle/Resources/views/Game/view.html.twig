@@ -1,7 +1,20 @@
 <div class="bowling">
-    <h3 class="title">You have not started a bowling game yet</h3>
+    {% if app.request.session.has('game') %}
+        <h3 class="title">Game started</h3>
 
-    <form method="post">
-        <button id="new-game">Start game</button>
-    </form>
+        <div class="score-wrapper">
+            <span class="title">Score:</span>
+            <span class="score">{{ game.score }}</span>
+        </div>
+
+        <form method="post" action="{{ path('post_game_roll') }}">
+            <button id="roll">Roll</button>
+        </form>
+    {% else %}
+        <h3 class="title">Click 'start game' to start a new bowling game</h3>
+
+        <form method="post">
+            <button id="new-game">Start game</button>
+        </form>
+    {% endif %}
 </div>

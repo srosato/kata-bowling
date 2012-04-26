@@ -2,6 +2,7 @@
   <dictionary name="ratius">
     <words>
       <w>inheritdoc</w>
+      <w>marshalled</w>
     </words>
   </dictionary>
 </component>

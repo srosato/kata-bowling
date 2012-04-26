@@ -40,19 +40,6 @@ class GameApiTest extends MinkTestCase
         throw $e;
     }
 
-    private function requestNewGame()
-    {
-        $this->getClient()->request('POST', '/game.json');
-    }
-
-    /**
-     * Client insulation is broken https://github.com/symfony/symfony/issues/1726
-     */
-    private function requestGame()
-    {
-        $this->getClient()->request('GET', '/game.json');
-    }
-
     private function insulateClient($client)
     {
         $client->setServerParameter('HTTP_X_REQUESTED_WITH', null);
@@ -75,7 +62,7 @@ class GameApiTest extends MinkTestCase
     /**
      * @test
      */
-    public function postShouldReturnThatAGameWasCreatedAndSendRedirectionResponseToGameView()
+    public function postShouldReturnThatAGameWasCreatedAndReturnARedirectionResponseToGameView()
     {
         $client = $this->getClient();
         $client->followRedirects(false);
@@ -84,7 +71,7 @@ class GameApiTest extends MinkTestCase
         $response = $this->getResponse();
 
         $this->assertEquals(HttpCodes::HTTP_FOUND, $response->getStatusCode());
-        $this->assertEquals('/game', $response->headers->get('location'));
+        $this->assertEquals('/game', $response->headers->get('location'), "Response is not redirecting to proper location");
     }
 
     /**
@@ -113,17 +100,89 @@ class GameApiTest extends MinkTestCase
     /**
      * @test
      */
-    public function getGameShouldReturnAGameIfAGameWasPreviouslyCreated()
+    public function getGameAsJsonShouldReturnAnEmptyGameIfAGameWasPreviouslyCreated()
     {
-        $this->requestNewGame();
-        $this->requestGame();
+        $client = $this->getClient();
+        $client->request('POST', '/game.json');
+        $client->request('GET', '/game.json');
+
         $response = $this->getResponse();
 
-        $expectedGame = array(
-            'id' => 'foo'
-        );
-
         $this->assertEquals(HttpCodes::HTTP_OK, $response->getStatusCode());
-        $this->assertEquals($expectedGame, json_decode($response->getContent(), true));
+        $this->assertEquals(array(), json_decode($response->getContent(), true), "Game data should be empty");
+    }
+
+    /**
+     * @test
+     */
+    public function postRollShouldReturnNotFoundIfNoGameWasCreated()
+    {
+        $this->getClient()->request('POST', '/game/roll.json');
+        $response = $this->getResponse();
+
+        $this->assertEquals(HttpCodes::HTTP_NOT_FOUND, $response->getStatusCode());
+    }
+
+    /**
+     * @test
+     */
+    public function aiaxPostRollShouldReturnCreatedWhenAGameIsActive()
+    {
+        $client = $this->getClient();
+
+        $client->request('POST', '/game.json');
+        $client->request('POST', '/game/roll.json', array(), array(), array('HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'));
+
+        $response = $this->getResponse();
+
+        $this->assertEquals(HttpCodes::HTTP_CREATED, $response->getStatusCode());
+    }
+
+    /**
+     * @test
+     */
+    public function getGameScoreShouldReturnNotFoundOnNoActiveGame()
+    {
+        $client = $this->getClient();
+        $client->request('GET', '/game/score.json');
+
+        $response = $this->getResponse();
+        $this->assertEquals(HttpCodes::HTTP_NOT_FOUND, $response->getStatusCode());
+    }
+
+    /**
+     * @test
+     */
+    public function postRollWithGivenPinsShouldReturnARedirectionResponseToGameView()
+    {
+        $client = $this->getClient();
+        $client->followRedirects(false);
+
+        $client->request('POST', '/game.json');
+        $client->request('POST', '/game/roll', array(
+            'pins' => 3
+        ));
+
+        $response = $this->getResponse();
+        $this->assertEquals(HttpCodes::HTTP_FOUND, $response->getStatusCode());
+        $this->assertEquals('/game', $response->headers->get('location'), "Response is not redirecting to proper location");
+    }
+
+    /**
+     * @test
+     */
+    public function ajaxPostRollWithGivenPinsAndGetGameShouldReturnProperGameScore()
+    {
+        $client = $this->getClient();
+
+        $client->request('POST', '/game.json');
+        $client->request('POST', '/game/roll.json', array(
+            'pins' => 3
+        ));
+        $client->request('GET', '/game/score.json', array(), array(), array('HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'));
+
+        $response = $this->getResponse();
+
+        $this->assertEquals(3, json_decode($response->getContent()), "Game score is wrong");
     }
 }

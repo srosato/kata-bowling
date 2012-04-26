@@ -10,6 +10,11 @@ class Spare extends AbstractRoll
     private $lastRoll;
 
     /**
+     * @var bool
+     */
+    protected $bonusApplicable = true;
+
+    /**
      * @param StandardRoll $lastRoll
      */
     public function __construct(StandardRoll $lastRoll)
