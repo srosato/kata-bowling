@@ -2,7 +2,7 @@
 
 namespace Srosato\BowlingBundle\Model;
 
-class StandardRoll extends AbstractRoll
+class StandardRoll implements Roll
 {
     private $pinsCount;
 
@@ -20,13 +20,5 @@ class StandardRoll extends AbstractRoll
     public function getValue()
     {
         return $this->pinsCount;
-    }
-
-    /**
-     * @return int
-     */
-    public function getBonusRollCount()
-    {
-        return 0;
     }
 }

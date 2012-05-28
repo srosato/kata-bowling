@@ -2,17 +2,12 @@
 
 namespace Srosato\BowlingBundle\Model;
 
-class Spare extends AbstractRoll
+class Spare extends AbstractRollWithBonus
 {
     /**
      * @var StandardRoll
      */
     private $lastRoll;
-
-    /**
-     * @var bool
-     */
-    protected $bonusApplicable = true;
 
     /**
      * @param StandardRoll $lastRoll

@@ -126,7 +126,7 @@ class GameApiTest extends MinkTestCase
     /**
      * @test
      */
-    public function aiaxPostRollShouldReturnCreatedWhenAGameIsActive()
+    public function ajaxPostRollShouldReturnCreatedWhenAGameIsActive()
     {
         $client = $this->getClient();
 

@@ -51,7 +51,7 @@ class Game
     {
         $currentFrame = $this->getCurrentFrame();
 
-        if( $this->isCurrentFrameLastFrame() ) {
+        if( $this->isCurrentFrameLastFrame() && $roll instanceof AbstractRollWithBonus ) {
             $roll->setIsBonusApplicable(false);
         }
 

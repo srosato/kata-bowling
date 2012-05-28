@@ -4,13 +4,8 @@ namespace Srosato\BowlingBundle\Model;
 
 use Srosato\BowlingBundle\Model\Frame;
 
-class Strike extends AbstractRoll
+class Strike extends AbstractRollWithBonus
 {
-    /**
-     * @var bool
-     */
-    protected $bonusApplicable = true;
-
     /**
      * {@inheritdoc}
      */

@@ -23,7 +23,7 @@ class Score
             $roll = $rollIterator->current();
             $score += $roll->getValue();
 
-            if( $roll->isBonusApplicable() ) {
+            if( $roll instanceof AbstractRollWithBonus && $roll->isBonusApplicable() ) {
                 $score += $this->getBonusFromNextRolls($roll->getBonusRollCount(),
                     $game->getRolls()->getIterator(), $rollIterator->key() + 1);
             }
