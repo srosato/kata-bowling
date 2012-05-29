@@ -153,6 +153,24 @@ class GameApiTest extends MinkTestCase
     /**
      * @test
      */
+    public function getGameShouldReturnHtmlGameOnActiveGame()
+    {
+        //FIXME: only added for code coverage, this web api test needs reordering
+        $client = $this->getClient();
+        $client->followRedirects(false);
+
+        $client->request('POST', '/game.json');
+        $client->request('POST', '/game/roll', array(
+            'pins' => 3
+        ));
+        $client->request('GET', '/game');
+
+        $this->assertPageContainsText($this->getSession('symfony'), "Score: 3", "Game score is wrong");
+    }
+
+    /**
+     * @test
+     */
     public function postRollWithGivenPinsShouldReturnARedirectionResponseToGameView()
     {
         $client = $this->getClient();

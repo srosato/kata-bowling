@@ -13,4 +13,8 @@ web_profiler:
 swiftmailer:
     disable_delivery: true
 
-mink: ~
+mink:
+    browser_name: firefox
+    default_session: selenium2
+    selenium2: ~
+    base_url: %test_base_url%

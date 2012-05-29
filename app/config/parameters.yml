@@ -13,3 +13,5 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    test_base_url:     http://localhost/kata-bowling/web/app_test.php

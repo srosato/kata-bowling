@@ -22,14 +22,6 @@ class GameHelper
     }
 
     /**
-     * @return AbstractAcceptanceTest
-     */
-    public function getTest()
-    {
-        return $this->test;
-    }
-
-    /**
      * @param string $expectedTitle
      */
     public function assertTitle($expectedTitle)
@@ -50,14 +42,12 @@ class GameHelper
         $test->assertLessThanOrEqual($max, $score, "Score should be less than {$score}");
     }
 
-    public function startNewGame()
+    /**
+     * @return AbstractAcceptanceTest
+     */
+    public function getTest()
     {
-        $test = $this->getTest();
-
-        $session = $test->getSession();
-        $session->visit('/game');
-
-        $this->getNewGameButton()->press();
+        return $this->test;
     }
 
     /**
@@ -78,11 +68,36 @@ class GameHelper
 
     public function getScore()
     {
-        return (int)$this->getTest()->findCss('.bowling .score-wrapper .score')->getHtml();
+        $score = $this->getTest()->findCss('.bowling .score-wrapper .score');
+
+        if( null !== $score ) {
+            return (int)$score->getHtml();
+        }
+
+        return null;
+    }
+
+    public function startNewGame()
+    {
+        $test = $this->getTest();
+
+        $test->getNavigationHelper()->visitGame();
+
+        $newGameButton = $this->getNewGameButton();
+
+        if( null !== $newGameButton ){
+            $newGameButton->press();
+            $this->getTest()->getSession()->wait(500);
+        }
     }
 
     public function roll()
     {
-        $this->getRollButton()->press();
+        $rollButton = $this->getRollButton();
+
+        if( null !== $rollButton ) {
+            $rollButton->press();
+            $this->getTest()->getSession()->wait(500);
+        }
     }
 }

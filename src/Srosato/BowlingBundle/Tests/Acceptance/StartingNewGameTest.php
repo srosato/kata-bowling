@@ -9,14 +9,13 @@ class StartingNewGameTest extends AbstractAcceptanceTest
      */
     public function visitTheGamePageShouldReturnNoGameAndSuggestToStartANewOne()
     {
-        $helper = $this->getGameHelper();
+        $gameHelper = $this->getGameHelper();
 
-        $session = $this->getSession();
-        $session->visit('/game');
+        $this->getNavigationHelper()->visitGame();
 
-        $helper->assertTitle("Click 'start game' to start a new bowling game");
+        $gameHelper->assertTitle("Click 'start game' to start a new bowling game");
 
-        $newGameButton = $helper->getNewGameButton();
+        $newGameButton = $gameHelper->getNewGameButton();
         $this->assertNotNull($newGameButton, "New game button should be there");
         $this->assertEquals("Start game", $newGameButton->getHtml(), "New game button text is wrong");
     }
@@ -45,6 +44,6 @@ class StartingNewGameTest extends AbstractAcceptanceTest
 
         $rollButton = $helper->getRollButton();
         $this->assertNotNull($rollButton, "Roll button should be there");
-        $this->assertEquals("Roll", $rollButton->getHtml(), "Roll button has wrong html");
+        $this->assertEquals("Roll", $rollButton->getHtml(), "Roll button has wrong text");
     }
 }

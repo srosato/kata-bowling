@@ -1,3 +1,7 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
 <div class="bowling">
     {% if app.request.session.has('game') %}
         <h3 class="title">Game started</h3>
@@ -18,3 +22,22 @@
         </form>
     {% endif %}
 </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(function(){
+            $('#roll').closest('form').submit(function() {
+                $.ajax({
+                    'type': 'POST',
+                    'url' : "{{ path('post_game_roll') }}",
+                    'data': {'pins' : 3}
+                }).done(function(response) {
+                    $('.bowling .score').html(parseInt($('.bowling .score').html()) + 3);
+                });
+
+                return false;
+            });
+        });
+    </script>
+{% endblock %}

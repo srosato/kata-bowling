@@ -12,6 +12,19 @@ class PlayingGameTest extends AbstractAcceptanceTest
     /**
      * @test
      */
+    public function viewingGameShouldDisplayTheCurrentScore()
+    {
+        $gameHelper = $this->getGameHelper();
+        $gameHelper->roll();
+
+        $this->getNavigationHelper()->visitGame();
+
+        $gameHelper->assertScoreBetween(1, 10);
+    }
+
+    /**
+     * @test
+     */
     public function rollingABallShouldIncrementTheScore()
     {
         $helper = $this->getGameHelper();
