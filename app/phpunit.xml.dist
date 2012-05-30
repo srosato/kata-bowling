@@ -38,4 +38,9 @@
         </whitelist>
     </filter>
 
+    <listeners>
+        <listener file="../src/Srosato/BowlingBundle/Tests/Listener/SeleniumScreenCaptureListener.php"
+                  class="Srosato\BowlingBundle\Tests\Listener\SeleniumScreenCaptureListener" />
+    </listeners>
+
 </phpunit>
