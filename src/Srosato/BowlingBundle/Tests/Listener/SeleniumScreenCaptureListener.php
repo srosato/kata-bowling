@@ -52,19 +52,20 @@ class SeleniumScreenCaptureListener implements \PHPUnit_Framework_TestListener
     public function addFailure(\PHPUnit_Framework_Test $test, \PHPUnit_Framework_AssertionFailedError $e, $time)
     {
         if( $test instanceof \Srosato\BowlingBundle\Tests\Acceptance\AbstractAcceptanceTest ) {
-            $session = $test->getSession();
-
-            if( null !== $session ) {
-                /* @var $driver \Behat\MinkBundle\Driver\SymfonyDriver */
-                $driver = $session->getDriver();
-
-                //TODO: screenshot name should reflect file, test method name and line number
-                $name = $this->getScreenshotNameFromTrace($e->getTrace());
-                $imageData = base64_decode($driver->wdSession->screenshot());
-                $ssDir = $test->getContainer()->getParameter('kernel.root_dir') . '/../bin/selenium-screenshots';
-                file_put_contents("{$ssDir}/{$name}.png", $imageData);
-            }
+            $this->takeScreenshot(
+                $test->getSession(),
+                $this->getScreenshotDirectory($test),
+                $this->getScreenshotNameFromTrace($e->getTrace())
+            );
         }
+    }
+
+    private function takeScreenshot(\Behat\Mink\Session $session, $screenshotDirectory, $screenshotName)
+    {
+        $driver = $session->getDriver();
+
+        $imageData = base64_decode($driver->wdSession->screenshot());
+        file_put_contents("{$screenshotDirectory}/{$screenshotName}.png", $imageData);
     }
 
     /**
@@ -121,7 +122,26 @@ class SeleniumScreenCaptureListener implements \PHPUnit_Framework_TestListener
      */
     public function startTest(\PHPUnit_Framework_Test $test)
     {
-        // TODO: Implement startTest() method.
+        $this->cleanScreenshots($this->getScreenshotDirectory($test));
+    }
+
+    private function getScreenshotDirectory(\PHPUnit_Framework_Test $test)
+    {
+        return realpath($test->getContainer()->getParameter('kernel.root_dir') . '/../bin/selenium-screenshots');
+    }
+
+    private function cleanScreenshots($ssDir)
+    {
+        $finder = new \Symfony\Component\Finder\Finder();
+        $finder->in($ssDir)
+            ->files()
+            ->name('*.png')
+        ;
+
+        /* @var $file \Symfony\Component\Finder\SplFileInfo */
+        foreach( $finder as $file ) {
+            unlink($file->getPathname());
+        }
     }
 
     /**

@@ -1,4 +1,0 @@
-Xvfb :99 -ac -screen 0 1024x768x24
-DISPLAY=:99 && java -jar selenium-server-standalone-2.21.0.jar
-ffmpeg -f x11grab -s xga -r 30 -b 2000k -g 300 -i :99.0 session-recording.avi
-

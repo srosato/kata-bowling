@@ -16,5 +16,8 @@ swiftmailer:
 mink:
     browser_name: firefox
     default_session: selenium2
-    selenium2: ~
+    selenium2:
+        wd_host: http://server:4444/wd/hub
+        #wd_host: http://localhost:4444/wd/hub
     base_url: %test_base_url%
+    #base_url: http://localhost/kata-bowling/web/app_test.php
