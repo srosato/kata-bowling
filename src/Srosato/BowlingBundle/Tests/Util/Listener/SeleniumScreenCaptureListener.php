@@ -122,7 +122,9 @@ class SeleniumScreenCaptureListener implements \PHPUnit_Framework_TestListener
      */
     public function startTest(\PHPUnit_Framework_Test $test)
     {
-        $this->cleanScreenshots($this->getScreenshotDirectory($test));
+        if( $test instanceof \Srosato\BowlingBundle\Tests\Acceptance\AbstractAcceptanceTest ) {
+            $this->cleanScreenshots($this->getScreenshotDirectory($test));
+        }
     }
 
     private function getScreenshotDirectory(\PHPUnit_Framework_Test $test)
