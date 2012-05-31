@@ -1,6 +1,6 @@
 <?php
 
-namespace Srosato\BowlingBundle\Tests\Listener;
+namespace Srosato\BowlingBundle\Tests\Util\Listener;
 
 class SeleniumScreenCaptureListener implements \PHPUnit_Framework_TestListener
 {

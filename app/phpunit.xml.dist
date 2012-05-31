@@ -39,8 +39,8 @@
     </filter>
 
     <listeners>
-        <listener file="../src/Srosato/BowlingBundle/Tests/Listener/SeleniumScreenCaptureListener.php"
-                  class="Srosato\BowlingBundle\Tests\Listener\SeleniumScreenCaptureListener" />
+        <listener file="../src/Srosato/BowlingBundle/Tests/Util/Listener/SeleniumScreenCaptureListener.php"
+                  class="Srosato\BowlingBundle\Tests\Util\Listener\SeleniumScreenCaptureListener" />
     </listeners>
 
 </phpunit>
