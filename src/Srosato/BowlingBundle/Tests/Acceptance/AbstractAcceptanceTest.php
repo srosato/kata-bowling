@@ -3,6 +3,7 @@
 namespace Srosato\BowlingBundle\Tests\Acceptance;
 
 use Majisti\UtilsBundle\Test\MinkTestCase;
+use Behat\Mink\Session;
 
 abstract class AbstractAcceptanceTest extends MinkTestCase
 {
@@ -42,6 +43,14 @@ abstract class AbstractAcceptanceTest extends MinkTestCase
         }
 
         throw $e;
+    }
+
+    /**
+     * @return Session
+     */
+    public function getSession()
+    {
+        return $this->getMink()->getSession();
     }
 
     /**

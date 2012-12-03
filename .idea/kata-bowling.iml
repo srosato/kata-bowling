@@ -18,6 +18,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="JsTestDriver Assertion Framework" level="application" />
   </component>
 </module>
 

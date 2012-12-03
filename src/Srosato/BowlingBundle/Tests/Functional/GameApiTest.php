@@ -4,9 +4,23 @@ namespace Srosato\BowlingBundle\Tests\Functional;
 
 use Majisti\UtilsBundle\Test\MinkTestCase;
 use FOS\Rest\Util\Codes as HttpCodes;
+use Behat\Mink\Session;
 
 class GameApiTest extends MinkTestCase
 {
+    /**
+     * @param null $name
+     * @return Session
+     */
+    public function getSession($name = null)
+    {
+        if( null === $name ) {
+            $name = 'symfony';
+        }
+
+        return parent::getSession($name);
+    }
+
     /**
      * @return \Symfony\Component\BrowserKit\Client
      */
@@ -27,17 +41,6 @@ class GameApiTest extends MinkTestCase
     private function getResponse()
     {
         return $this->getClient()->getResponse();
-    }
-
-    /**
-     * @param \Exception $e
-     * @throws \Exception
-     */
-    protected function onNotSuccessfulTest(\Exception $e)
-    {
-        print $this->getSession()->getPage()->getContent();
-
-        throw $e;
     }
 
     private function insulateClient($client)

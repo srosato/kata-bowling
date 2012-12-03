@@ -30,6 +30,9 @@ class GameController extends Controller
      */
     public function postGameAction()
     {
+        /* @var $handler \FOS\RestBundle\View\ViewHandler */
+        $handler = $this->get('fos_rest.view_handler');
+
         $session = $this->getRequest()->getSession();
         $session->set('game', new Game());
 
@@ -37,11 +40,8 @@ class GameController extends Controller
 
         if( $this->getRequest()->isXmlHttpRequest() ) {
             $view->setStatusCode(HttpCodes::HTTP_CREATED);
-            return $view;
+            return $handler->handle($view);
         }
-
-        /* @var $handler \FOS\RestBundle\View\ViewHandler */
-        $handler = $this->get('fos_rest.view_handler');
 
         $format = $this->getRequest()->getRequestFormat();
         if( $handler->isFormatTemplating($format) ) {
@@ -50,7 +50,7 @@ class GameController extends Controller
 
         $view->setStatusCode(HttpCodes::HTTP_METHOD_NOT_ALLOWED);
 
-        return $view;
+        return $handler->handle($view);
     }
 
     /**
@@ -61,6 +61,8 @@ class GameController extends Controller
      */
     public function getGameAction()
     {
+        /* @var $handler \FOS\RestBundle\View\ViewHandler */
+        $handler = $this->get('fos_rest.view_handler');
         $session = $this->getRequest()->getSession();
 
         $view = View::create()
@@ -68,8 +70,6 @@ class GameController extends Controller
         ;
 
         if( false !== ($game = $session->get('game', false)) ) {
-            /* @var $handler \FOS\RestBundle\View\ViewHandler */
-            $handler = $this->get('fos_rest.view_handler');
             $format = $this->getRequest()->getRequestFormat();
             if( $handler->isFormatTemplating($format) ) {
                 $data = array('game' => $game);
@@ -82,7 +82,7 @@ class GameController extends Controller
             $view->setStatusCode(HttpCodes::HTTP_NOT_FOUND);
         }
 
-        return $view;
+        return $handler->handle($view);
     }
 
     /**
@@ -92,6 +92,9 @@ class GameController extends Controller
      */
     public function postGameRollAction()
     {
+        /* @var $handler \FOS\RestBundle\View\ViewHandler */
+        $handler = $this->get('fos_rest.view_handler');
+
         $request = $this->getRequest();
         $session = $request->getSession();
 
@@ -104,11 +107,8 @@ class GameController extends Controller
 
             if( $this->getRequest()->isXmlHttpRequest() ) {
                 $view->setStatusCode(HttpCodes::HTTP_CREATED);
-                return $view;
+                return $handler->handle($view);
             }
-
-            /* @var $handler \FOS\RestBundle\View\ViewHandler */
-            $handler = $this->get('fos_rest.view_handler');
 
             $format = $this->getRequest()->getRequestFormat();
             if( $handler->isFormatTemplating($format) ) {
@@ -118,11 +118,14 @@ class GameController extends Controller
             $view->setStatusCode(HttpCodes::HTTP_NOT_FOUND);
         }
 
-        return $view;
+        return $handler->handle($view);
     }
 
     public function getGameScoreAction()
     {
+        /* @var $handler \FOS\RestBundle\View\ViewHandler */
+        $handler = $this->get('fos_rest.view_handler');
+
         $session = $this->getRequest()->getSession();
         $view = View::create();
 
@@ -133,6 +136,6 @@ class GameController extends Controller
             $view->setStatusCode(HttpCodes::HTTP_NOT_FOUND);
         }
 
-        return $view;
+        return $handler->handle($view);
     }
 }

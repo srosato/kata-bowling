@@ -41,6 +41,8 @@
     <listeners>
         <listener file="../src/Srosato/BowlingBundle/Tests/Util/Listener/SeleniumScreenCaptureListener.php"
                   class="Srosato\BowlingBundle\Tests\Util\Listener\SeleniumScreenCaptureListener" />
+        <listener file="../src/Srosato/BowlingBundle/Tests/Util/Listener/OutputListener.php"
+                  class="Srosato\BowlingBundle\Tests\Util\Listener\OutputListener" />
     </listeners>
 
 </phpunit>

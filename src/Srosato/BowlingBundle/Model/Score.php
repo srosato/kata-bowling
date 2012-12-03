@@ -8,8 +8,7 @@ namespace Srosato\BowlingBundle\Model;
 class Score
 {
     /**
-     * @param \Srosato\BowlingBundle\Model\Game $game
-     *
+     * @param Game $game
      * @return int
      */
     public function calculate(Game $game)
